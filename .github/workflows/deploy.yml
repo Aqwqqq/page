@@ -4,7 +4,7 @@ on:
   # Trigger the workflow on push to main branch
   push:
     branches:
-      - master
+      - main
 
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python-version: [3.11]
+        python-version: [3.09]
     steps:
     - uses: actions/checkout@v2
 
