@@ -1,0 +1,28 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Git
+        run: |
+          git config --global user.name 'Your Name'
+          git config --global user.email 'your-email@example.com'
+      
+      - name: Deploy to GitHub Pages
+        run: |
+          git remote set-url origin https://github.com/Aqwqqq/page.git
+          git checkout gh-pages
+          git pull origin gh-pages
+          git merge master
+          git push origin gh-pages
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
