@@ -4,9 +4,9 @@ on:
   # Trigger the workflow on push to main branch
   push:
     branches:
-      - main
+      - gh-pages1
 
-# This job installs dependencies, build the book, and pushes it to `gh-pages`
+# This job installs dependencies, build the book, and pushes it to `gh-pages2`
 jobs:
   build-and-deploy-book:
     runs-on: ${{ matrix.os }}
@@ -36,4 +36,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_build/html
+        publish_dir: D:\newpages\_build\html
